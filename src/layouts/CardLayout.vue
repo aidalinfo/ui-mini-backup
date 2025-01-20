@@ -12,18 +12,6 @@
           </q-toolbar-title>
         </q-toolbar>
 
-        <q-toolbar class="bg-white text-black">
-          <!-- MultipleActions -->
-          <template v-if="slots.stickyHeader">
-            <slot name="stickyHeader" />
-          </template>
-
-          <q-space />
-
-          <!-- Actions standards -->
-          <slot name="actions" />
-        </q-toolbar>
-
         <q-toolbar v-if="slots.filters">
           <slot name="filters" />
         </q-toolbar>

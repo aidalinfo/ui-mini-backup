@@ -65,11 +65,8 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue';
-import { useQuasar } from 'quasar';
-import { api } from 'boot/axios';
 import CardLayout from 'src/layouts/CardLayout.vue';
-import NotificationBox from './NotificationBox.vue';
+// import NotificationBox from './NotificationBox.vue';
 // Références
 const $q = useQuasar();
 const data = ref(null);

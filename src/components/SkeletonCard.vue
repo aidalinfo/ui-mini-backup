@@ -24,10 +24,6 @@
 </template>
 
 <script setup>
-// import DoubleCard from 'src/layouts/DoubleCard.vue';
-import { ref, onMounted } from 'vue';
-import { useQuasar } from 'quasar';
-import { api } from 'boot/axios';
 // Références
 const $q = useQuasar();
 const data = ref(null);

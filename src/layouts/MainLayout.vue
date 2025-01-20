@@ -57,10 +57,10 @@ const linksList = [
     link: '/'
   },
   {
-    title: 'Stockage distant',
-    caption: 'Stockage distant',
+    title: 'Paramètres',
+    caption: 'Paramètres du serveur',
     icon: 'storage',
-    link: '/storage'
+    link: '/settings'
   },
   // {
   //   title: 'Discord Chat Channel',
