@@ -1,0 +1,144 @@
+{
+    "backupTypes": {
+      "mysql": {
+        "description": "Sauvegarde des bases de données MySQL.",
+        "fields": [
+          {
+            "name": "databases",
+            "type": "list",
+            "label": "Bases de données",
+            "placeholder": "Nom des bases de données, une par ligne",
+            "required": true
+          },
+          {
+            "name": "host",
+            "type": "text",
+            "label": "Adresse du serveur",
+            "placeholder": "Exemple : localhost",
+            "required": true
+          },
+          {
+            "name": "port",
+            "type": "text",
+            "label": "Port",
+            "placeholder": "Exemple : 3306",
+            "required": true
+          },
+          {
+            "name": "user",
+            "type": "text",
+            "label": "Utilisateur",
+            "placeholder": "Nom d'utilisateur",
+            "required": true
+          },
+          {
+            "name": "password",
+            "type": "password",
+            "label": "Mot de passe",
+            "placeholder": "Mot de passe utilisateur",
+            "required": true
+          },
+          {
+            "name": "ssl",
+            "type": "boolean",
+            "label": "SSL activé",
+            "placeholder": null,
+            "required": false
+          }
+        ]
+      },
+      "mongo": {
+        "description": "Sauvegarde des bases de données MongoDB.",
+        "fields": [
+          {
+            "name": "host",
+            "type": "text",
+            "label": "Adresse du serveur",
+            "placeholder": "Exemple : localhost",
+            "required": true
+          },
+          {
+            "name": "port",
+            "type": "text",
+            "label": "Port",
+            "placeholder": "Exemple : 27017",
+            "required": true
+          },
+          {
+            "name": "user",
+            "type": "text",
+            "label": "Utilisateur",
+            "placeholder": "Nom d'utilisateur",
+            "required": false
+          },
+          {
+            "name": "password",
+            "type": "password",
+            "label": "Mot de passe",
+            "placeholder": "Mot de passe utilisateur",
+            "required": false
+          },
+          {
+            "name": "ssl",
+            "type": "boolean",
+            "label": "SSL activé",
+            "placeholder": null,
+            "required": false
+          }
+        ]
+      },
+      "folder": {
+        "description": "Sauvegarde des dossiers locaux.",
+        "fields": [
+          {
+            "name": "folders",
+            "type": "list",
+            "label": "Dossiers",
+            "placeholder": "Chemin des dossiers à sauvegarder, un par ligne",
+            "required": true
+          }
+        ]
+      },
+      "s3": {
+        "description": "Sauvegarde des données sur S3.",
+        "fields": [
+          {
+            "name": "buckets",
+            "type": "list",
+            "label": "Buckets",
+            "placeholder": "Nom des buckets, un par ligne",
+            "required": true
+          },
+          {
+            "name": "endpoint",
+            "type": "text",
+            "label": "Endpoint S3",
+            "placeholder": "Exemple : https://s3.fr-par.scw.cloud",
+            "required": true
+          },
+          {
+            "name": "region",
+            "type": "text",
+            "label": "Région",
+            "placeholder": "Exemple : fr-par",
+            "required": true
+          },
+          {
+            "name": "ACCESS_KEY",
+            "type": "text",
+            "label": "Clé d'accès",
+            "placeholder": "Clé d'accès S3",
+            "required": true
+          },
+          {
+            "name": "SECRET_KEY",
+            "type": "password",
+            "label": "Clé secrète",
+            "placeholder": "Clé secrète S3",
+            "required": true
+          }
+        ]
+      }
+    }
+  }
+  

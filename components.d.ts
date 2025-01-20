@@ -7,8 +7,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/CoreConfiguration copy.vue')['default']
+    BackupConfiguration: typeof import('./src/components/BackupConfiguration.vue')['default']
+    Backups: typeof import('./src/components/Backups.vue')['default']
+    BackupsList: typeof import('./src/components/BackupsList.vue')['default']
+    copy: typeof import('./src/components/ListConfiguration copy.vue')['default']
     CoreConfiguration: typeof import('./src/components/CoreConfiguration.vue')['default']
+    CreatorConfig: typeof import('./src/components/CreatorConfig.vue')['default']
+    CreatorConfiig: typeof import('./src/components/CreatorConfiig.vue')['default']
     EssentialLink: typeof import('./src/components/EssentialLink.vue')['default']
     ListConfiguration: typeof import('./src/components/ListConfiguration.vue')['default']
     NotificationBox: typeof import('./src/components/NotificationBox.vue')['default']

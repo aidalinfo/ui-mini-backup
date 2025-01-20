@@ -62,6 +62,12 @@ const linksList = [
     icon: 'storage',
     link: '/settings'
   },
+  {
+    title: 'Créateur',
+    caption: 'Builder de configuration de sauvegarde',
+    icon: 'storage',
+    link: '/builder'
+  }
   // {
   //   title: 'Discord Chat Channel',
   //   caption: 'chat.quasar.dev',
