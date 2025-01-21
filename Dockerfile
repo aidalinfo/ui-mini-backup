@@ -1,5 +1,5 @@
 # build stage
-FROM  node:22.5.1 AS build-stage
+FROM  node:20.15.1-alpine3.19 AS build-stage
 RUN apk update && apk add --no-cache
 RUN apk add --upgrade brotli
 WORKDIR /app
