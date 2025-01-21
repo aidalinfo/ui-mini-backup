@@ -5,7 +5,7 @@ RUN apk add --upgrade brotli
 WORKDIR /app
 COPY . . 
 RUN npm install 
-RUN quasar clean --qconf
+RUN rm -rf *.temporary.compiled*
 RUN npm run build
 RUN cd ./dist/spa && find . -type f -exec brotli {} \;
 
