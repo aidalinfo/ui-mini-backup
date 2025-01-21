@@ -1,0 +1,36 @@
+name: Build dev cli
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+
+    - name: Extract version from tag
+      id: extract_version
+      run: |
+        VERSION="${GITHUB_REF#refs/tags/}"
+        VERSION="${VERSION#v}" # Remove 'v' if it exists
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+    - name: downcase REPO
+      run: echo "REPO=${{github.event.repository.name}}" >>${GITHUB_ENV}
+    - name: Build the Docker image
+      env:
+        SCW_DOCKER:  ${{ secrets.SCW_DOCKER }}
+      run: docker login rg.fr-par.scw.cloud/open-mini-backup -u nologin -p "$SCW_DOCKER"
+    - run: docker build . --file Dockerfile --tag "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:${VERSION}"
+    - run: docker push "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:${VERSION}"
+    - run: |
+        docker tag "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:${VERSION}" \
+          "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:rc-latest"
+    - run: docker push "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:rc-latest"
