@@ -3,10 +3,8 @@ FROM node:lts-alpine AS build-stage
 RUN apk update && apk add --no-cache
 RUN apk add --upgrade brotli
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci 
-RUN quasar clean
 COPY . .
+RUN npm ci 
 RUN npm run build
 RUN cd ./dist/spa && find . -type f -exec brotli {} \;
 

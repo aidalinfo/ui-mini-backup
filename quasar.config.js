@@ -2,7 +2,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
 import { defineConfig } from "#q-app/wrappers";
-import { autoImportPlugin, componentsPlugin } from "src/plugins/AutoImport.js";
+import { autoImportPlugin, componentsPlugin } from "./src/plugins/AutoImport.js";
 export default defineConfig((/* ctx */) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
