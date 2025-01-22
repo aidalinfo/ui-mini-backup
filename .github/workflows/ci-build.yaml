@@ -24,13 +24,11 @@ jobs:
 
     - name: downcase REPO
       run: echo "REPO=${{github.event.repository.name}}" >>${GITHUB_ENV}
+    - name: Purge Docker cache
+      run: docker builder prune -af
     - name: Build the Docker image
       env:
         SCW_DOCKER:  ${{ secrets.SCW_DOCKER }}
-
-    - name: Purge Docker cache
-      run: docker builder prune -af
-
       run: docker login rg.fr-par.scw.cloud/open-mini-backup -u nologin -p "$SCW_DOCKER"
     - run: docker build . --file Dockerfile --tag "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:${VERSION}"
     - run: docker push "rg.fr-par.scw.cloud/open-mini-backup/${REPO,,}:${VERSION}"
