@@ -1,5 +1,5 @@
 # build stage
-FROM  node:20.15.1-alpine3.19 AS build-stage
+FROM node:lts-alpine AS build-stage
 RUN apk update && apk add --no-cache
 RUN apk add --upgrade brotli
 WORKDIR /app
@@ -83,9 +83,6 @@ if [ -n "$API_URL" ]; then\n\
     find /usr/share/nginx/html -type f -name "*.js" -exec sed -i "s|http://localhost:8080|$API_URL|g" {} +;\n\
 fi\n\
 exec nginx -g "daemon off;"\n' > /entrypoint.sh
-# Add the environment injection script
-COPY ./set-env-variable.sh /docker-entrypoint.d
-RUN chmod +x /docker-entrypoint.d/set-env-variable.sh
 
 RUN chmod +x /entrypoint.sh
 

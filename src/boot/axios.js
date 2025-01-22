@@ -1,13 +1,20 @@
 import { defineBoot } from '#q-app/wrappers'
 import axios from 'axios'
-import getEnv from "../env.js";
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;
 // If any client changes this (global) instance, it might be a
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: getEnv("API_URL") })
+let url
+if (process.env.DEV){
+  url = "http://localhost:8080"
+}
+else{
+  url = ""
+}
+
+const api = axios.create({ baseURL:  url})
 
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
