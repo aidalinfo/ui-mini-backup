@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache
 RUN apk add --upgrade brotli
 WORKDIR /app
 COPY . . 
-RUN rm -rf *.temporary.compiled*
+RUN rm -rf .quasar dist *.temporary.compiled*
 RUN npm install 
 RUN npm run build
 RUN cd ./dist/spa && find . -type f -exec brotli {} \;
