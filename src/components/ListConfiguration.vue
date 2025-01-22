@@ -193,7 +193,7 @@ async function listLastBackup() {
 async function restoreBackup(row) {
   console.log("RESTORE BACKUP", row);
     try  {
-      const response = await api.post(`/restore/${row.name}`);
+      const response = await api.post(`/api/restore/${row.name}`);
       if (response.status === 200) {
         $q.notify({
           color: 'positive',
@@ -204,7 +204,7 @@ async function restoreBackup(row) {
         $q.notify({
           color: 'negative',
           position: 'top',
-          message: `Erreur lors de la restauration de la sauvegarde pour ${row.name}`,
+          message: `Erreur lors de la restauration de la sauvegarde pour ${row.name} : ${response.data.error}`,
         });
       }
     } catch (error) {
